@@ -1,3 +1,13 @@
+Unterstützung des "1.5inch OLED Module" mit ssd1327 Controller.
+Für mega328_color_kit die Anzeige der externen Spannung statt der seriellen Ausgabe freigeschaltet.
+Fehlerhafte Elkos werden weniger oft als Diode erkannt.
+Added option LCD_ICON_COLOR for different color selection for big icons.
+Function expand_FET_quadratic mit Rundung.
+Frequenzgrenze für Periodenmessung auf 33kHz verschoben.
+Frequency-Scaler (WITH_FREQUENCY_DIVIDER) reorganisiert, 2er Potenz statt Zahl (1 bis 512).
+Geringerer Flash Benutzung mit Funktionen signed_diff und vcc_diff.
+Maximale Anzahl der Auswahlzeilen für das Menü mit der Option MAX_MENU_LINES wählbar (Standard 5).
+Einstellbarer Vorteiler für Frequenzmessung mit Option WITH_FREQUENCY_DIVIDER.
 Keine Ausgabe von RDS bei IGBTs.
 Zusätzliche Makefile Option NO_FREQ_COUNTER.
 Anzeige  IDss mit der Option FET_Idss für JFETs, wenn unter 40mA.

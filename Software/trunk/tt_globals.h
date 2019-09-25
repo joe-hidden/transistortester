@@ -20,6 +20,12 @@
 #endif
 #ifdef WITH_MENU
    const int8_t big_cap_corr EEMEM = C_H_KORR;	// default correction for big capacity measurement
+ #if defined(WITH_FREQUENCY_DIVIDER) && !defined(NO_FREQ_COUNTER)
+  #ifndef FREQ_SCALER
+   #define FREQ_SCALER 0		// 1<<0 = 1
+  #endif
+  const uint8_t f_scaler EEMEM = FREQ_SCALER;	// default scaler for frequency measurement
+ #endif
 #endif
 
   const uint8_t EE_ESR_ZEROtab[] EEMEM = {ESR_ZERO, ESR_ZERO, ESR_ZERO, ESR_ZERO};	// zero offset of ESR measurement
@@ -52,6 +58,9 @@
 #endif
  #ifdef WITH_MENU
   extern int8_t big_cap_corr EEMEM;	// default correction for big capacity measurement
+ #if defined(WITH_FREQUENCY_DIVIDER) && !defined(NO_FREQ_COUNTER)
+  extern uint8_t f_scaler EEMEM;	// default scaler for frequency measurement
+ #endif
  #endif
   extern const uint8_t EE_ESR_ZEROtab[] EEMEM;	// zero offset of ESR measurement
 
@@ -213,9 +222,17 @@ COMMON union {
   uint16_t w;
   uint8_t b[2];
 } lcd_bg_color;
+#endif
+#if defined(LCD_CHANGE_COLOR) || defined(LCD_ICON_COLOR)
 COMMON union {
   uint16_t w;
   uint8_t b[2];
 } lcd_fg_color;
+#endif
+#if defined(LCD_ICON_COLOR)
+COMMON union {
+  uint16_t w;
+  uint8_t b[2];
+} lcd_fg2_color;
 #endif
 
